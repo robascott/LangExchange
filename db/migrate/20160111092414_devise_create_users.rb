@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :username,           null: false, default: ""
-      t.string :langauges_learning, array: true, default: []
+      t.string :languages_learning, array: true, default: []
       t.string :native_language,    null: false, default: ""
 
       ## Recoverable

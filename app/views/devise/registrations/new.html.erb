@@ -9,6 +9,12 @@
   </div>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -20,6 +26,20 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div class="select">
+    <%= f.label :native_language %><br />
+    <%= f.select(:native_language, get_languages_options_array) %>
+  <div>
+
+  <div class="select">
+    <% get_languages.each do |language| %>
+
+      <%= check_box_tag(:language, language.iso_639_1) %>
+      <%= label_tag(:language, "#{language.name}") %>
+
+    <% end %>
+  <div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

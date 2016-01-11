@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20160111110759) do
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "username",               default: "", null: false
-    t.string   "langauges_learning",     default: [],              array: true
-    t.string   "native_language",        default: "", null: false
+    t.integer  "languages_learning",     default: [],              array: true
+    t.integer  "native_language",                     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -1,0 +1,28 @@
+<h1>Users list</h1>
+
+<ul>
+
+<% @users.each do |user| %>
+	<li>
+
+		<a href="/users/<%= user['id'] %>">Username: <%= user['username'] %></a>
+		<p>Email: <%= user['email'] %></p>
+		<p>Native language: <%= get_language_name(user['language_id']) %></p>
+
+		<p>Learning:</p>
+
+		<ul>
+			<% user.languages.each do |language| %>
+				<li>
+					<p><%= language.name %></p>
+				</li>
+			<% end %>
+		</ul>
+		
+
+	</li>
+
+<% end %>
+
+
+</ul>

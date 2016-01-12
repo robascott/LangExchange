@@ -1,14 +1,53 @@
-<h1><%= @note['title'] %></h1>
+<h1>Title: <%= @note['title'] %></h1>
 
-<p><%= @language['name'] %></p>
+<p>Language: <%= @language['name'] %></p>
 
-<p><%= @note['body'] %></p>
+<p>Body: <%= @note['body'] %></p>
 
-<p><%= @note['source'] %></p>
+<p>Source: <%= @note['source'] %></p>
 
 <a href="/users/<%= @user['id'] %>/notes/<%= @note['id'] %>/edit">Edit</a>
 
 <%= link_to 'Back', user_path(@user) %>
+
+<br><br>
+
+<h3>Add new comment</h3>
+
+<%= form_for(@comment, url: "/users/#{@user['id']}/notes/#{@note['id']}/comments", method: "post") do |f| %>
+
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+
+<% end %>
+
+
+<br>
+
+<h3>Comments</h3>
+
+<ul>
+
+<% @comments.each do |comment| %>
+
+	<li>
+
+		<p><%= User.find(comment['user_id']).username %></p>
+		<p><%= comment['text'] %></p>
+
+	</li>
+
+
+<% end %>
+
+</ul>
+
 
 
 

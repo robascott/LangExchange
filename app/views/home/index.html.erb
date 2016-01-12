@@ -1,0 +1,24 @@
+<h1>Newest notes</h1>
+
+
+<ul>
+
+<%= @notes.each do |note| %>
+
+	<% if note['question'] == true %>
+
+		<li>
+
+			<%= link_to "#{note['title']}", user_note_path(User.find(note['user_id']), note) %>
+
+			<p><%= get_language_name(note['language_id']) %></p>
+
+			<p><%= note['body'] %></p>
+
+		</li>
+
+	<% end %>
+
+<% end %>
+
+</ul>

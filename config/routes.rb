@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get "users/all", to: "users#list_users"
+
+  resources :home
+
   devise_for :users, controllers: { registrations: "registrations" }
 
   resources :users do
@@ -12,7 +16,8 @@ Rails.application.routes.draw do
 
   get "users/:user_id/preferences/update", to: "users#set_preferences"
 
-  root "users#index"
+
+  root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

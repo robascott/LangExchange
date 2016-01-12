@@ -6,6 +6,8 @@ class NotesController < ApplicationController
     @user = User.find(params[:user_id])
     @note = Note.find(params[:id])
     @language = Language.find(@note['language_id'])
+    @comment = Comment.new
+    @comments = @note.comments
   end
 
   def new

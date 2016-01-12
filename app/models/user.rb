@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   belongs_to :native , :foreign_key => "language_id",  :class_name => "Language"
   has_many :learning
   has_many :languages, :through => :learning
+  has_many :comments
 end

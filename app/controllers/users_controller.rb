@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   end
 
   def show
+  	@user = User.find(params[:id])
+  	@notes = Note.where(user_id: params[:id])
   end
 
 
@@ -28,7 +30,6 @@ class UsersController < ApplicationController
   		new_learning = Learning.new(user_id: params[:user_id], language_id: id)
   		new_learning.save
   	end
-
 
   	redirect_to "/"
   end

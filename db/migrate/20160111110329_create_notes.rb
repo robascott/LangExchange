@@ -1,7 +1,7 @@
 class CreateNotes < ActiveRecord::Migration
   def change
     create_table :notes do |t|
-      t.string :language
+      t.integer :language_id
       t.string :title
       t.text :body
       t.text :source

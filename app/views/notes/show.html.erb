@@ -1,2 +1,12 @@
-<h1>Notes#show</h1>
-<p>Find me in app/views/notes/show.html.erb</p>
+<h1><%= @note['title'] %></h1>
+
+<p><%= @language['name'] %></p>
+
+<p><%= @note['body'] %></p>
+
+<p><%= @note['source'] %></p>
+
+<a href="/users/<%= @user['id'] %>/notes/<%= @note['id'] %>/edit">Edit</a>
+
+
+

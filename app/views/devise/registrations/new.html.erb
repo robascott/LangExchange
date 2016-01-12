@@ -27,7 +27,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="select">
+  <div class="field">
     <%= f.label :language_id %><br />
     <%= f.collection_select(:language_id, Language.all, :id, :name) %>
   </div>

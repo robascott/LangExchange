@@ -39,15 +39,15 @@ ActiveRecord::Schema.define(version: 20160112102918) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.string   "language"
+    t.integer  "language_id"
     t.string   "title"
     t.text     "body"
     t.text     "source"
     t.boolean  "question"
     t.boolean  "private"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

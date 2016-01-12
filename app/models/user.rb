@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :note, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   belongs_to :native , :foreign_key => "language_id",  :class_name => "Language"
   has_many :learning

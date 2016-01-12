@@ -1,2 +1,19 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+
+<a href="/users/<%= @user['id'] %>/notes/new">Add new note</a>
+
+
+<ul>
+
+<% @notes.each do |note| %>
+
+	<li>
+		<a href="/users/<%= @user['id'] %>/notes/<%= note['id'] %>"><%= note['title'] %></a>
+	</li>
+
+
+<% end %>
+
+
+</ul>

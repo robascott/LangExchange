@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :username, :native_language, :languages_learning) }
-        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :current_password, :native_language, :languages_learning) }
+        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :username, :language_id, :languages_learning) }
+        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :current_password, :language_id, :languages_learning) }
     end
 
   helper_method :get_languages_options_array, :get_languages

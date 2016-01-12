@@ -28,16 +28,11 @@
   </div>
 
   <div class="select">
-    <%= f.label :native_language %><br />
-    <%= f.select(:native_language, get_languages_options_array) %>
+    <%= f.label :language_id %><br />
+    <%= f.collection_select(:language_id, Language.all, :id, :name) %>
   </div>
 
-  <div class="checkbox">
-    <% get_languages.each do |language| %>
-      <%= f.label(:languages_learning, "#{language.name}") %>
-      <%= f.check_box(:languages_learning, {}, language.iso_639_1, nil) %>
-    <% end %>
-  <div>
+  
 
   <div class="actions">
     <%= f.submit "Sign up" %>

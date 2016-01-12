@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :users do
     resources :notes do
       resources :comments
     end
   end
+
+  get "users/:user_id/preferences", to: "users#preferences"
+
+  get "users/:user_id/preferences/update", to: "users#set_preferences"
 
   root "users#index"
 

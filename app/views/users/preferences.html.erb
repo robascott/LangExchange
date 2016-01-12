@@ -1,0 +1,18 @@
+<%= form_for(@user, url: "/users/#{@user['id']}/preferences/update", method: 'get') do |f| %>
+
+  <div class="field">
+    <%= f.label "Languages you're learning" %><br />
+      <%= f.collection_check_boxes :language_ids, Language.all, :id, :name do |b| %>
+        <div class="collection-check-box">
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+      <% end %>
+
+  </div>
+
+	<div class="actions">
+	  <%= f.submit "Save" %>
+	</div>
+
+<% end %>

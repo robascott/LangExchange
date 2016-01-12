@@ -29,6 +29,8 @@ class NotesController < ApplicationController
   end
 
   def destroy
+    Note.destroy(params[:id])
+    redirect_to "/users/#{params[:user_id]}"
   end
 
   def note_params

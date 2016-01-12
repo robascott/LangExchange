@@ -3,13 +3,13 @@
 
 <ul>
 
-<%= @notes.each do |note| %>
+<% @notes.each do |note| %>
 
 	<% if note['question'] == true %>
 
 		<li>
 
-			<%= link_to "#{note['title']}", user_note_path(User.find(note['user_id']), note) %>
+			<%= link_to "#{note['title']}", user_note_path(note.user, note) %>
 
 			<p><%= get_language_name(note['language_id']) %></p>
 

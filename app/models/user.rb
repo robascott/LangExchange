@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :note, dependent: :destroy
+
+  belongs_to :native , :foreign_key => "language_id",  :class_name => "Language"
+  has_many :learning
+  has_many :languages, :through => :learning
 end

@@ -30,14 +30,12 @@
   <div class="select">
     <%= f.label :native_language %><br />
     <%= f.select(:native_language, get_languages_options_array) %>
-  <div>
+  </div>
 
-  <div class="select">
+  <div class="checkbox">
     <% get_languages.each do |language| %>
-
-      <%= check_box_tag(:language, language.iso_639_1) %>
-      <%= label_tag(:language, "#{language.name}") %>
-
+      <%= f.label(:languages_learning, "#{language.name}") %>
+      <%= f.check_box(:languages_learning, {}, language.iso_639_1, nil) %>
     <% end %>
   <div>
 

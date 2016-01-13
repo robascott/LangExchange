@@ -1,20 +1,28 @@
-<h1>Title: <%= @note['title'] %></h1>
+<h1><%= @note['title'] %></h1>
 
-<h3>Posted by: <%= link_to "#{@note.user.username}", user_path(@user) %></h3>
+<h4>Created by: <%= link_to "#{@note.user.username}", user_path(@user) %></h3>
 
-<p>Language: <%= @language['name'] %></p>
-
-<p>Body: <%= @note['body'] %></p>
-
-<p>Source: <%= @note['source'] %></p>
+<p class="note-opened-language"><%= @language['name'] %></p>
 
 <% if user_signed_in? %>
-	<%= link_to "Edit", edit_note_path(@note) %>
+	<div class = "note-opened-edit-delete-links">
+		<%= link_to "Edit", edit_note_path(@note), class: "note-edit" %>
+		<%= link_to 'Delete', user_note_path(@user, @note), :method => :delete, class: "note-delete" %>
+	</div>
 <% end %>
 
+<div class="note-opened-body">
+<p><%= @note['body'] %></p>
+</div>
+
+<div class="note-opened-source">
+	<p>Source: <%= auto_link(@note['source']) %></p>
+</div>
 
 
-<br><br>
+<br>
+
+<div class="comments-section-container">
 
 <h3>Add new comment</h3>
 
@@ -35,27 +43,33 @@
 
 <h3>Comments</h3>
 
-<ul class="comment-container">
+<ul class="comments-container">
 
-<% @comments.each do |comment| %>
+	<% @comments.each do |comment| %>
 
-	<li class="comment">
+		<li class="comment">
 
-		<%= link_to User.find(comment['user_id']).username, user_path(comment), class: "comment-username" %>
-		<p class="comment-language">Native language: <%= get_language_name(comment['user_id']) %></p>
-		
-		<p class="comment-text"><%= comment['text'] %></p>
+			<%= link_to User.find(comment['user_id']).username, user_path(comment), class: "comment-username" %>
+			<p class="comment-language">Native language: <%= get_language_name(comment['user_id']) %></p>
+			
+			<p class="comment-text"><%= comment['text'] %></p>
 
-		<% if user_signed_in? %>
-			<%= link_to 'Delete', note_comment_path(@note,comment), :method => :delete, class: "comment-delete" %>
-		<% end %>
+			<% if user_signed_in? %>
+				<%= link_to 'Delete', note_comment_path(@note,comment), :method => :delete, class: "comment-delete" %>
+			<% end %>
 
-	</li>
+		</li>
 
 
-<% end %>
+	<% end %>
+
+	<% if @comments.length == 0 %>
+		<p id="no-comments-message">Be the first to comment</p>
+	<% end %>
 
 </ul>
+
+</div>
 
 
 

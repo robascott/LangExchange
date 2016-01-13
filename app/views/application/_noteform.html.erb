@@ -1,22 +1,22 @@
 <%= form_for(@note, url: @route, method: @method) do |f| %>
 
 	<div class="field">
-	  <%= f.label :language_id %><br />
+	  <%= f.label :language_id %>
 	  <%= f.collection_select(:language_id, @user.languages, :id, :name) %>
 	</div>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
 
   <div class="field">
-    <%= f.label :source %><br />
+    <%= f.label :source %>
     <%= f.text_field :source %>
   </div>
 

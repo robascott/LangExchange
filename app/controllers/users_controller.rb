@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@notes = @user.notes
+  	@notes = @user.notes.order(:created_at).reverse_order
   end
 
 

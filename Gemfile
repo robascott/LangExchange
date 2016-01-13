@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise', '3.4.1'
 
+gem  "rails_autolink"
+
 gem 'language_list', '~> 1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

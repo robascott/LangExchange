@@ -16,21 +16,146 @@
 
  */
 
+ @import "variables.scss";
+
+ body {
+ 	background-color: white;
+ }
+
+ main {
+ 	max-width: 900px;
+ 	margin: 0 auto;
+ 	margin-top: 10px;
+ }
+
  .has-dropdown {
  	min-width: 200px;
  }
 
- .comment-container {
+
+ .new-note-cancel {
+ 	display: block;
+ 	margin-top: 15px;
+ }
+
+
+ .notes-container {
+ 	list-style: none;
+ 	margin: 0 auto;
+ 	padding: 0;
+ 	
+
+ 	.note {
+ 		background-color: $box-color;
+ 		border: 2px solid black;
+ 		padding: 10px;
+ 		padding-bottom: 40px;
+ 		margin-bottom: 20px;
+
+ 		.note-title {
+ 			font-size: 20px;
+ 		}
+
+ 		.note-username {
+ 			margin-left: 15px;
+ 			font-size: 15px;
+ 			font-style: italic;
+ 		}
+
+ 		.note-language {
+ 			float: right;
+ 			font-style: italic;
+ 		}
+
+ 		.note-body {
+ 			margin-top: 10px;
+ 			margin-bottom: 0px;
+ 		}
+
+ 		.edit-delete-links {
+ 			display: inline-block;
+ 			float: right;
+ 			vertical-align: top;
+ 			margin-top: 10px;
+
+ 			.note-edit {
+ 				padding-right: 1px;
+ 			}
+
+ 			.note-delete {
+ 				padding-left: 1px;
+ 			}
+ 		}
+ 	}
+
+ 	.note-home {
+ 		@extend .note;
+ 		padding-bottom: 15px;
+ 	}
+
+ 	
+ 	
+ }
+
+ .note-opened-language {
+ 	display: inline-block;
+ 	font-size: 18px;
+ 	margin-bottom: 5px;
+ }
+
+ .note-opened-edit-delete-links {
+ 	float: right;
+
+ 	.note-edit {
+ 		padding-right: 1px;
+ 	}
+
+ 	.note-delete {
+ 		padding-left: 1px;
+ 	}
+ }
+
+
+
+ .note-opened-body, .note-opened-source {
+ 	background-color: $box-color;
+ 	border: 2px solid black;
+ 	list-style: none;
+ 	margin-bottom: 10px;
+ 	padding: $box-padding;
+ }
+
+
+ .note-opened-source {
+ 	p {
+ 		margin-bottom: 0;
+ 	}
+ }
+
+ .comments-section-container {
+ 	background-color: $box-color;
+ 	border: 2px solid black;
+ 	margin-top: 30px;
+ 	padding: $box-padding;
+ }
+
+ .comments-container {
  	list-style: none;
  	margin: 10px;
+
+ 	#no-comments-message {
+ 		font-style: italic;
+ 		color: gray;
+ 	}
  }
 
 
 .comment {
 	border: 2px solid black;
+	margin-bottom: 20px;
 
 	padding: 5px;
-	margin-bottom: 10px;
+	padding-bottom: 25px;
 
 	.comment-username, .comment-language {
 		display: inline;
@@ -51,7 +176,8 @@
 	}
 
 	.comment-delete {
-		font-size: 12px;
+		font-size: 14px;
+		float: right;
 	}
 }
 

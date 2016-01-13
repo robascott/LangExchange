@@ -7,7 +7,7 @@ class NotesController < ApplicationController
     @user = User.find(@note['user_id'])
     @language = Language.find(@note['language_id'])
     @comment = Comment.new
-    @comments = @note.comments
+    @comments = @note.comments.order(:created_at).reverse_order
   end
 
   def new
@@ -40,7 +40,7 @@ class NotesController < ApplicationController
 
   def destroy
     Note.destroy(params[:id])
-    redirect_to "/users/#{params[:user_id]}"
+    redirect_to user_path(current_user)
   end
 
   def note_params

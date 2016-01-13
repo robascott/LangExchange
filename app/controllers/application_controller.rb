@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :current_password, :language_id, :languages_learning) }
     end
 
-  helper_method :get_languages, :get_language_name
+  helper_method :get_languages, :get_language_name, :shorten_note
 
     def get_languages
       languages = LanguageList::COMMON_LANGUAGES
@@ -25,5 +25,14 @@ class ApplicationController < ActionController::Base
       language = Language.find(id)
       return language.name
     end
+
+    def shorten_note(text)
+      new_text = text[0,300]
+      if new_text.length < text.length
+        new_text = new_text + "…"
+      end
+      return new_text
+    end
+
 
 end

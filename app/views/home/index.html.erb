@@ -1,19 +1,21 @@
 <h1>Newest notes</h1>
 
 
-<ul>
+<ul class="notes-container">
 
 <% @notes.each do |note| %>
 
 	<% if note['question'] == true %>
 
-		<li>
+		<li class="note-home">
 
-			<%= link_to "#{note['title']}", note_path(note) %>
+			<%= link_to "#{note['title']}", note_path(note), class: "note-title" %>
 
-			<p><%= get_language_name(note['language_id']) %></p>
+			<%= link_to "#{note.user.username}", user_path(note.user), class: "note-username" %>
 
-			<p><%= note['body'] %></p>
+			<p class="note-language"><%= get_language_name(note['language_id']) %></p>
+
+			<p class="note-body"><%= shorten_note(note['body']) %></p>
 
 		</li>
 

@@ -14,7 +14,7 @@ class NotesController < ApplicationController
     @note = Note.new
     @user = current_user
     @method = "post"
-    @route = note_path
+    @route = notes_path
   end
 
   def create

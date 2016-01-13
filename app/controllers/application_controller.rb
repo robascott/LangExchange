@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :current_password, :language_id, :languages_learning) }
     end
 
-  helper_method :get_languages, :get_language_name, :logged_in?
+  helper_method :get_languages, :get_language_name
 
     def get_languages
       languages = LanguageList::COMMON_LANGUAGES
@@ -24,10 +24,6 @@ class ApplicationController < ActionController::Base
     def get_language_name(id)
       language = Language.find(id)
       return language.name
-    end
-
-    def logged_in?
-      !!current_user
     end
 
 end

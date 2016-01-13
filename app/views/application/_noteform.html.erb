@@ -1,4 +1,4 @@
-<%= form_for(@note, url: "/users/#{@user['id']}/notes", method: "post") do |f| %>
+<%= form_for(@note, url: @route, method: @method) do |f| %>
 
 	<div class="field">
 	  <%= f.label :language_id %><br />

@@ -8,10 +8,12 @@
 
 <% @notes.each do |note| %>
 
-	<li>
-		<a href="/users/<%= @user['id'] %>/notes/<%= note['id'] %>"><%= note['title'] %></a>
-		<%= link_to 'Delete', user_note_path(@user, note), :confirm => 'Are you sure?', :method => :delete %>
-	</li>
+	
+
+		<li>
+			<%= link_to "#{note['title']}", note_path(note) %>
+			<%= link_to 'Delete', user_note_path(@user, note), :method => :delete %>
+		</li>
 
 
 <% end %>

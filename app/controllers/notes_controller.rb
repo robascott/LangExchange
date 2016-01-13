@@ -3,8 +3,8 @@ class NotesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @note = Note.find(params[:id])
+    @user = User.find(@note['user_id'])
     @language = Language.find(@note['language_id'])
     @comment = Comment.new
     @comments = @note.comments
@@ -13,6 +13,8 @@ class NotesController < ApplicationController
   def new
     @note = Note.new
     @user = current_user
+    @method = "post"
+    @route = note_path
   end
 
   def create
@@ -25,9 +27,15 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
     @user = current_user
+    @method = "put"
+    @route = note_path
   end
 
   def update
+    note = Note.find(params[:id])
+    note.update(note_params)
+
+    redirect_to note_path
   end
 
   def destroy
@@ -36,6 +44,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit( :title, :language_id, :body, :source, :question, :user_id)
+    params.require(:note).permit( :title, :language_id, :body, :source, :question, :private )
   end
 end

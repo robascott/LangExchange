@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
 
+  resources :notes, only:[:create, :new, :destroy, :edit, :update, :show] do
+    resources :comments
+  end
+
   resources :users do
-    resources :notes do
-      resources :comments
-    end
+    resources :notes
   end
 
   get "users/:user_id/preferences", to: "users#preferences"

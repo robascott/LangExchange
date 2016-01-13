@@ -9,7 +9,7 @@
 
 		<li>
 
-			<%= link_to "#{note['title']}", user_note_path(note.user, note) %>
+			<%= link_to "#{note['title']}", note_path(note) %>
 
 			<p><%= get_language_name(note['language_id']) %></p>
 

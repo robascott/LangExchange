@@ -6,7 +6,7 @@
 
 <p>Source: <%= @note['source'] %></p>
 
-<a href="/users/<%= @user['id'] %>/notes/<%= @note['id'] %>/edit">Edit</a>
+<%= link_to "Edit", edit_note_path(@note) %>
 
 <%= link_to 'Back', user_path(@user) %>
 
@@ -14,7 +14,7 @@
 
 <h3>Add new comment</h3>
 
-<%= form_for(@comment, url: "/users/#{@user['id']}/notes/#{@note['id']}/comments", method: "post") do |f| %>
+<%= form_for(@comment, url: note_comments_path(@note), method: "post") do |f| %>
 
   <div class="field">
     <%= f.label :text %><br />
@@ -38,7 +38,8 @@
 
 	<li>
 
-		<p><%= User.find(comment['user_id']).username %></p>
+		<a id="comment-username" href="/users/<%= comment['user_id'] %>"><%= User.find(comment['user_id']).username %></a>
+		<p id="comment-language">Native language: <%= get_language_name(comment['user_id']) %></p>
 		<p><%= comment['text'] %></p>
 
 	</li>

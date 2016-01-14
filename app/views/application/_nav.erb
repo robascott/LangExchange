@@ -13,7 +13,7 @@
       <ul class="right">
         <% if user_signed_in? %>
           <li class="has-dropdown">
-            <a href="#"><%= current_user.username %></a>
+            <a id="nav-username" href="#"><%= current_user.username %></a>
             <ul class="dropdown">
               <li><a href="/users/<%= current_user.id %>">Profile</a></li>
               <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>

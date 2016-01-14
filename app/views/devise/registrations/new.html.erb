@@ -5,12 +5,12 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, :required => true %>
+    <%= f.email_field :email, autofocus: true, :required => true, autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, :required => true %>
+    <%= f.text_field :username, :required => true, autocomplete: "off" %>
   </div>
 
 
@@ -31,7 +31,6 @@
     <%= f.label :language_id %><br />
     <%= f.collection_select(:language_id, Language.all, :id, :name) %>
   </div>
-
   
 
   <div class="actions">

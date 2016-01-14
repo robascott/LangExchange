@@ -23,18 +23,39 @@ $(document).ready(function() {
 	$("#private-checkbox").change(function() {
 	  if ($(this).is(':checked')) {
 	  	$("#question-checkbox").attr("disabled", true);
+	  	$("#question-label").css("color","#bdc3c7");
 	  } else {
-	  	$("#question-checkbox").removeAttr("disabled");	
+	  	$("#question-checkbox").removeAttr("disabled");
+	  	$("#question-label").css("color","");
 	  }
 	});
 
 	$("#question-checkbox").change(function() {
 	  if ($(this).is(':checked')) {
 	  	$("#private-checkbox").attr("disabled", true);
+	  	$("#private-label").css("color","#bdc3c7");
 	  } else {
-	  	$("#private-checkbox").removeAttr("disabled");	  	
+	  	$("#private-checkbox").removeAttr("disabled");
+	  	$("#private-label").css("color","");	  	
 	  }
 	});
+
+  if ($("#private-checkbox").is(':checked')) {
+  	$("#question-checkbox").attr("disabled", true);
+  	$("#question-label").css("color","#bdc3c7");
+  } else {
+  	$("#question-checkbox").removeAttr("disabled");
+  	$("#question-label").css("color","");
+  }
+
+  if ($("#question-checkbox").is(':checked')) {
+  	$("#private-checkbox").attr("disabled", true);
+  	$("#private-label").css("color","#bdc3c7");
+  } else {
+  	$("#private-checkbox").removeAttr("disabled");
+  	$("#private-label").css("color","");	  	
+  }
+
 })
 
 

@@ -6,6 +6,11 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @user = User.find(@note['user_id'])
     @language = Language.find(@note['language_id'])
+    if is_youtube?(@note['source'])
+      @youtube = true
+    else
+      @youtube = false
+    end
     @comment = Comment.new
     @comments = @note.comments.order(:created_at).reverse_order
   end

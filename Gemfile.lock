@@ -182,7 +182,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise (= 3.4.1)
-  foundation-rails
+  foundation-rails (= 5.5.3.2)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -190,8 +190,8 @@ DEPENDENCIES
   pg (~> 0.15)
   pry
   rails (= 4.2.5)
-  rails_autolink
-  ransack (~> 1.7)
+  rails_autolink (= 1.1.6)
+  ransack (= 1.7.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

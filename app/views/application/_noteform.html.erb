@@ -7,27 +7,27 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :source %>
-    <%= f.text_field :source, :placeholder => "Enter a URL (optional)" %>
+    <%= f.text_field :source, :placeholder => "Enter a URL (optional)", autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.check_box(:question, {:id => "question-checkbox"}, true, false) %>
-    <%= f.label(:question, "Post as question") %>
+    <%= f.label(:question, "Post as question", id: "question-label") %>
   </div>
 
   <div class="field">
     <%= f.check_box(:private, {:id => "private-checkbox"}, true, false) %>
-    <%= f.label(:private, "Private note") %>
+    <%= f.label(:private, "Private note", id: "private-label") %>
   </div>
   
 

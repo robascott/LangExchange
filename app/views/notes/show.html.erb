@@ -1,15 +1,34 @@
 <h1><%= @note['title'] %></h1>
 
-<h4>Created by: <%= link_to "#{@note.user.username}", user_path(@user) %></h3>
+<h4 class="note-opened-created-by" >Created by: <%= link_to "#{@note.user.username}", user_path(@user) %></h3>
+
+<% if @note['private'] %>
+	<i class="fa fa-lock" title="This note is not visible to other users"></i>
+	<p class="note-opened-private-label">Private</p>
+	<br>
+<% end %>
+
+<% if @note['question'] %>
+	<img class="megaphone" src="/img/megaphone.svg" title="This note is a question">
+	<p class="note-opened-question-label">Posted as question</p>
+	<br>
+<% end %>
+
+<h6>Posted <%= @note['created_at'] %></h6>
 
 <p class="note-opened-language"><%= @language['name'] %></p>
 
-<% if user_signed_in? %>
-	<div class = "note-opened-edit-delete-links">
+
+
+<div class = "note-opened-links-icons">
+
+
+
+	<% if user_signed_in? %>
 		<%= link_to "Edit", edit_note_path(@note), class: "note-edit" %>
-		<%= link_to 'Delete', user_note_path(@user, @note), :method => :delete, class: "note-delete" %>
-	</div>
-<% end %>
+		<%= link_to 'Delete', user_note_path(@user, @note), :method => :delete, class: "note-delete" %>	
+	<% end %>
+</div>
 
 <div class="note-opened-body">
 <p><%= @note['body'] %></p>
@@ -17,9 +36,15 @@
 
 <p class="source-label">Source:</p>
 
-<div class="note-opened-source">
-	<p><%= auto_link(@note['source']) %></p>
-</div>
+<% if @youtube %>
+	<div class="embed-container">
+		<%= embed_youtube(@note['source']) %>
+	</div>
+<% else %>
+	<div class="note-opened-source">
+		<p><%= auto_link(@note['source']) %></p>
+	</div>
+<% end %>
 
 
 <br>
@@ -53,6 +78,7 @@
 
 			<%= link_to comment.user.username, user_path(comment.user), class: "comment-username" %>
 			<p class="comment-language">Native language: <%= get_language_name(comment['user_id']) %></p>
+			<p class="comment-time"><%= comment['created_at'] %></p>
 			
 			<p class="comment-text"><%= comment['text'] %></p>
 

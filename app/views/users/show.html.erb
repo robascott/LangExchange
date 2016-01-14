@@ -16,6 +16,8 @@
 				<p class="note-language"><%= get_language_name(note['language_id']) %></p>
 
 				<p class="note-body"><%= shorten_note(note['body']) %></p>
+
+				<i class="fa fa-comments"></i><%= link_to "#{note.comments.length} Comments", note_path(note), class: "note-comments-label" %>
 				
 				<% if current_user %>
 					<div class="edit-delete-links">

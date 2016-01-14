@@ -14,6 +14,8 @@
 
 		<p class="note-body"><%= shorten_note(note['body']) %></p>
 
+		<i class="fa fa-comments"></i><%= link_to "#{note.comments.length} Comments", note_path(note), class: "note-comments-label" %>
+
 	</li>
 
 <% end %>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     if user_signed_in?
-      @languages = current_user.languages
+      @languages = @user.languages
     else
       @languages = Language.all
     end

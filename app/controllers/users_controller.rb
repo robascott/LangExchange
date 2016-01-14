@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
 
   def show
   	@user = User.find(params[:id])
@@ -21,14 +19,8 @@ class UsersController < ApplicationController
 
 
   def list_users
-  	@users = User.all
-
-  	languages = get_languages
-
-  	languages.each do |language|
-  	  string = "Language.create(name: '#{language.name}', code: '#{language.iso_639_1}')"
-  	  puts string
-  	end
+  	@q = User.ransack(params[:q])
+    @users = @q.result
   end
 
 
@@ -43,4 +35,5 @@ class UsersController < ApplicationController
 
   	redirect_to "/"
   end
+
 end

@@ -4,7 +4,14 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@notes = @user.notes.order(:created_at).reverse_order
+    if user_signed_in?
+      @languages = current_user.languages
+    else
+      @languages = Language.all
+    end
+    @path = user_path
+    @q = Note.ransack(params[:q])
+    @notes = @q.result.where(user_id: params[:id]).order(:created_at).reverse_order
   end
 
 

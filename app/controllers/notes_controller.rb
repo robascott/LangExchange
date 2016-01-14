@@ -33,6 +33,15 @@ class NotesController < ApplicationController
 
   def update
     note = Note.find(params[:id])
+    
+    if params[:private] == nil
+      note.private = nil
+    end
+    
+    if params[:question] == nil
+      note.question = nil
+    end
+    
     note.update(note_params)
 
     redirect_to note_path

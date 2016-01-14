@@ -17,22 +17,22 @@
 
   <div class="field">
     <%= f.label :source %>
-    <%= f.text_field :source %>
+    <%= f.text_field :source, :placeholder => "Enter a URL (optional)" %>
   </div>
 
   <div class="field">
-    <%= f.check_box(:question, {}, true, false) %>
-    <%= f.label(:question, "Ask community") %>
+    <%= f.check_box(:question, {:id => "question-checkbox"}, true, false) %>
+    <%= f.label(:question, "Post as question") %>
   </div>
 
   <div class="field">
-    <%= f.check_box(:private, {}, true, false) %>
-    <%= f.label(:private, "Make note private") %>
+    <%= f.check_box(:private, {:id => "private-checkbox"}, true, false) %>
+    <%= f.label(:private, "Private note") %>
   </div>
   
 
   <div class="actions">
-    <%= f.submit "Save" %>
+    <button>Save</button>
   </div>
 
 <% end %>

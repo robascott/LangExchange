@@ -35,6 +35,8 @@
       <ul class="left">
         <li><a href="/">Home</a></li>
         <li><a href="/users/all">Users</a></li>
+        <li><a href="/questions">Questions</a></li>
+        <li><a href="/new">Newly posted</a></li>
         <% if user_signed_in? %>
           <li><%= link_to "Add new note", new_note_path %></li>
         <% end %>

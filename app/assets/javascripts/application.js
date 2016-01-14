@@ -13,7 +13,29 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+
+$(document).ready(function() {
+	$("#private-checkbox").change(function() {
+	  if ($(this).is(':checked')) {
+	  	$("#question-checkbox").attr("disabled", true);
+	  } else {
+	  	$("#question-checkbox").removeAttr("disabled");	
+	  }
+	});
+
+	$("#question-checkbox").change(function() {
+	  if ($(this).is(':checked')) {
+	  	$("#private-checkbox").attr("disabled", true);
+	  } else {
+	  	$("#private-checkbox").removeAttr("disabled");	  	
+	  }
+	});
+})
+
+
+

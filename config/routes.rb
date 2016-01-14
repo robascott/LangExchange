@@ -19,7 +19,14 @@ Rails.application.routes.draw do
   get "users/:user_id/preferences/update", to: "users#set_preferences"
 
 
-  root "home#index"
+  get "/new", to: "home#new"
+
+  get "/questions", to: "home#questions"
+
+  get "/search", to: "home#search"
+
+
+  root "home#questions"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

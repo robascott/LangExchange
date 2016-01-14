@@ -1,0 +1,10 @@
+<%= search_form_for @q, url: @path, class: "language-filter-form" do |f| %>
+
+	<%= f.label :language_id_eq, "Filter by language" %>
+	<%= f.collection_select :language_id_eq, @languages, :id, :name %>
+
+  <button class="filter-button">Filter</button>
+
+<% end %>
+
+<a href="<%= @path %>" class="cancel-filter"><button>Cancel filter</button></a>

@@ -1,0 +1,21 @@
+<ul class="notes-container">
+
+<%= render "languagefilter" %>
+
+<% @notes.each do |note| %>
+
+	<li class="note-home">
+
+		<%= link_to "#{note['title']}", note_path(note), class: "note-title" %>
+
+		<%= link_to "#{note.user.username}", user_path(note.user), class: "note-username" %>
+
+		<p class="note-language"><%= get_language_name(note['language_id']) %></p>
+
+		<p class="note-body"><%= shorten_note(note['body']) %></p>
+
+	</li>
+
+<% end %>
+
+</ul>

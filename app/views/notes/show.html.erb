@@ -15,8 +15,10 @@
 <p><%= @note['body'] %></p>
 </div>
 
+<p class="source-label">Source:</p>
+
 <div class="note-opened-source">
-	<p>Source: <%= auto_link(@note['source']) %></p>
+	<p><%= auto_link(@note['source']) %></p>
 </div>
 
 
@@ -24,7 +26,7 @@
 
 <div class="comments-section-container">
 
-<h3>Add new comment</h3>
+<h4>Add new comment</h4>
 
 <%= form_for(@comment, url: note_comments_path(@note), method: "post") do |f| %>
 
@@ -41,7 +43,7 @@
 
 <br>
 
-<h3>Comments</h3>
+<h4>Comments</h4>
 
 <ul class="comments-container">
 
@@ -49,7 +51,7 @@
 
 		<li class="comment">
 
-			<%= link_to User.find(comment['user_id']).username, user_path(comment), class: "comment-username" %>
+			<%= link_to comment.user.username, user_path(comment.user), class: "comment-username" %>
 			<p class="comment-language">Native language: <%= get_language_name(comment['user_id']) %></p>
 			
 			<p class="comment-text"><%= comment['text'] %></p>

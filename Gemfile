@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'jquery-turbolinks'
+
 gem 'devise', '3.4.1'
+
+gem 'ransack', '~> 1.7'
 
 gem  "rails_autolink"
 

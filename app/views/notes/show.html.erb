@@ -21,9 +21,6 @@
 
 
 <div class = "note-opened-links-icons">
-
-
-
 	<% if user_signed_in? %>
 		<%= link_to "Edit", edit_note_path(@note), class: "note-edit" %>
 		<%= link_to 'Delete', user_note_path(@user, @note), :method => :delete, class: "note-delete" %>	
@@ -34,16 +31,20 @@
 <p><%= @note['body'] %></p>
 </div>
 
-<p class="source-label">Source:</p>
+<% if @note['source'].length > 0 %>
 
-<% if @youtube %>
-	<div class="embed-container">
-		<%= embed_youtube(@note['source']) %>
-	</div>
-<% else %>
-	<div class="note-opened-source">
-		<p><%= auto_link(@note['source']) %></p>
-	</div>
+	<p class="source-label">Source:</p>
+
+	<% if @youtube %>
+		<div class="embed-container">
+			<%= embed_youtube(@note['source']) %>
+		</div>
+	<% else %>
+		<div class="note-opened-source">
+			<p><%= auto_link(@note['source']) %></p>
+		</div>
+	<% end %>
+
 <% end %>
 
 

@@ -78,7 +78,7 @@
 		<li class="comment">
 
 			<%= link_to comment.user.username, user_path(comment.user), class: "comment-username" %>
-			<p class="comment-language">Native language: <%= get_language_name(comment['user_id']) %></p>
+			<p class="comment-language">Native language: <%= get_language_name(comment.user.native) %></p>
 			<p class="comment-time"><%= comment['created_at'] %></p>
 			
 			<p class="comment-text"><%= comment['text'] %></p>

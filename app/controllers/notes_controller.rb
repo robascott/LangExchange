@@ -5,14 +5,20 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @user = User.find(@note['user_id'])
-    @language = Language.find(@note['language_id'])
-    if is_youtube?(@note['source'])
-      @youtube = true
+
+    if user_signed_in? && @user['id'] == current_user.id
+      @language = Language.find(@note['language_id'])
+      if is_youtube?(@note['source'])
+        @youtube = true
+      else
+        @youtube = false
+      end
+      @comment = Comment.new
+      @comments = @note.comments.order(:created_at).reverse_order
     else
-      @youtube = false
+      redirect_to "/"
     end
-    @comment = Comment.new
-    @comments = @note.comments.order(:created_at).reverse_order
+
   end
 
   def new
@@ -31,9 +37,14 @@ class NotesController < ApplicationController
 
   def edit
     @note = Note.find(params[:id])
-    @user = current_user
-    @method = "put"
-    @route = note_path
+    @user = @note.user
+
+    if user_signed_in? && @user['id'] == current_user.id
+      @method = "put"
+      @route = note_path
+    else
+      redirect_to "/"
+    end    
   end
 
   def update
@@ -53,8 +64,13 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    Note.destroy(params[:id])
-    redirect_to user_path(current_user)
+    user = Note.find(params[:id]).user
+    if user_signed_in? && user['id'] == current_user.id
+      Note.destroy(params[:id])
+      redirect_to user_path(current_user)
+    else
+      redirect_to "/"
+    end
   end
 
   def note_params

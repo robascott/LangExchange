@@ -78,3 +78,18 @@ Language.create(name: 'Uzbek', code: 'uz')
 Language.create(name: 'Vietnamese', code: 'vi')
 Language.create(name: 'Welsh', code: 'cy')
 Language.create(name: 'Xhosa', code: 'xh')
+
+
+
+u1 = User.create! :username => 'Hannah21', :email => 'hannah@gmail.com', :language:id => 25, :password => 'testpassword', :password_confirmation => 'testpassword'
+u2 = User.create! :username => 'Robin93', :email => 'robin@gmail.com', :language:id => 25, :password => 'testpassword', :password_confirmation => 'testpassword'
+u3 = User.create! :username => 'YukiTakaya', :email => 'yuki@gmail.com', :language:id => 40, :password => 'testpassword', :password_confirmation => 'testpassword'
+u4 = User.create! :username => 'CoolMarc', :email => 'marc@gmail.com', :language:id => 29, :password => 'testpassword', :password_confirmation => 'testpassword'
+u5 = User.create! :username => 'JoeBloggs', :email => 'joe@gmail.com', :language:id => 29, :password => 'testpassword', :password_confirmation => 'testpassword'
+u6 = User.create! :username => 'AwesomeMichael', :email => 'michael@gmail.com', :language:id => 31, :password => 'testpassword', :password_confirmation => 'testpassword'
+
+
+
+
+
+

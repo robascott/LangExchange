@@ -9,9 +9,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.destroy(params[:id])
+    comment = Comment.find(params[:id])
+    user = Note.find(params[:note_id]).user
+    if user_signed_in? && user['id'] == current_user.id
+      Comment.destroy(params[:id])
+    end
+
     note = comment.note
-    redirect_to note_path(note)
+    redirect_to note_path(note)  
   end
 
 end

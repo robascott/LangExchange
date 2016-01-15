@@ -1,3 +1,9 @@
-<h1>Recent questions</h1>
+<h1>Newest questions</h1>
+
+<% if user_signed_in? %>
+	<h5>Respond to questions about your native language</h5>
+<% else %>
+	<%= render "languagefilter" %>
+<% end %>
 
 <%= render "homenotes" %>

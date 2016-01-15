@@ -5,9 +5,13 @@ class HomeController < ApplicationController
   	else
   		@languages = Language.all
   	end
-  	@path = "/questions"
-  	@q = Note.ransack(params[:q])
-  	@notes = @q.result.where(question: true).order(:created_at).reverse_order
+    if user_signed_in?
+      @notes = Note.where(question: true, language_id: current_user['language_id']).order(:created_at).reverse_order
+    else
+      @path = "/questions"  
+      @q = Note.ransack(params[:q])
+      @notes = @q.result.where(question: true).order(:created_at).reverse_order
+    end
   end
 
   def new

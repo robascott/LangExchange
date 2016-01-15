@@ -1,7 +1,7 @@
 <%= search_form_for @q, url: "/users/all", class: "user-search-form" do |f| %>
 
 	<%= f.label :username_cont, "Search users" %>
-	<%= f.text_field :username_cont, autocomplete: "off" %>
+	<%= f.text_field :username_cont, placeholder: "Enter username", autocomplete: "off" %>
 
   <button class="search-button">Search</button>
 

@@ -6,7 +6,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @user = User.find(@note['user_id'])
 
-    if user_signed_in? && @user['id'] == current_user.id
+    if @note['private'] != true || (user_signed_in? && @user['id'] == current_user.id)
       @language = Language.find(@note['language_id'])
       if is_youtube?(@note['source'])
         @youtube = true

@@ -1,23 +1,25 @@
-WDI Project 2
-======
-## LangExchange
+# LangExchange
 
-An app that allows language learners to ask questions about the language(s) they're learning and get responses from native speakers.
+An online social platform for language learners. Users ask questions about the languages they're learning and get responses from native speakers.
 
-#### Technologies:
+[https://robin-langexchange.herokuapp.com/](https://robin-langexchange.herokuapp.com/)
 
-- Languages: Ruby, HTML, CSS, JQuery
-- Gems: Foundation, Devise, Ransack
+<img src="app/assets/images/screenshot.png" width='900px'></img>
 
+## Technology
 
-#### Planning:
+**Languages/Frameworks:** Ruby, HTML, CSS, jQuery, PostgreSQL, Foundation
 
-Wireframes using Balsamiq Mockups  
-[Trello](https://trello.com/b/GTb0yaNh/langexchange) for general planning
+**Packages (Gems):** Devise, Ransack
 
 
-#### Future improvements:
+## Planning
+
+* [Wireframes](http://imgur.com/a/Iu1CB) 
+* [Trello](https://trello.com/b/GTb0yaNh/langexchange)
+
+## Future plans
 
 - Voting on comments
-- Integrated translation
-- Profile page
+- Integrated machine translation
+- Profile pages
